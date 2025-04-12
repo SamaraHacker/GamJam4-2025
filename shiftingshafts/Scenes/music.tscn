@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfbg844hembeo"]
+
+[ext_resource type="AudioStream" uid="uid://sp7d2cf5m3in" path="res://Sounds/GameMsc.wav" id="1_kfp44"]
+
+[node name="Music" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_kfp44")
+autoplay = true

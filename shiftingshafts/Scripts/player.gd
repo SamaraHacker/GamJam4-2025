@@ -1,14 +1,17 @@
 extends CharacterBody2D
 
 
-const PUSH_SPEED = 20.0
+const PUSH_SPEED = 50
 const SPEED = 125.0
+const MAX_VELOCITY = 50
 const JUMP_VELOCITY = -250.0
 const gravScalar = 1.1
 
 var canJump = false
 var jumpTicks = 0
 var jumpPressed = false
+
+var collisionBox = CollisionShape2D.new()
 
 
 func _physics_process(delta: float) -> void:
@@ -31,9 +34,11 @@ func _physics_process(delta: float) -> void:
 	
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
-		var collisionBox = collision.get_collider()
-		if collisionBox.is_in_group("boxes"):
-			collisionBox.set_angular_velocity(0.0)
+		#if collisionBox.is_in_group("boxes") and not collision.get_collider() == collisionBox:
+		#	collisionBox.lock_rotation = false
+		collisionBox = collision.get_collider()
+		if collisionBox.is_in_group("boxes") and abs(collisionBox.get_linear_velocity().x)< MAX_VELOCITY:
+		#	collisionBox.lock_rotation = true
 			collisionBox.apply_central_impulse(collision.get_normal()*-PUSH_SPEED)
 	
 	
