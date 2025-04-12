@@ -49,16 +49,27 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("ui_left", "ui_right")
+	var world_rotation = int(get_parent().rotation_degrees) % 360
+	
+	if world_rotation < 0:
+		world_rotation += 360
+		
+	var world_rotated = false
+	
+	if(world_rotation > 150 and world_rotation < 210):
+		world_rotated = true
 	
 	if direction:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
-		if Input.is_action_pressed("ui_left"):
-			AnimatedSprite2D.scale.x = -1  # Flip to face left
-		elif Input.is_action_pressed("ui_right"):
-			AnimatedSprite2D.scale.x = 1   # Face right
+		
+	if direction != 0:
+		if world_rotated:
+			animated_sprite_2d.scale.x = -direction
+		else:
+			animated_sprite_2d.scale.x = direction
 	
 	
 	move_and_slide()
