@@ -33,7 +33,7 @@ script = ExtResource("1_geluq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lbkth")
-frame_progress = 0.138932
+frame_progress = 0.087712
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["player"]]
 position = Vector2(-1, 2)

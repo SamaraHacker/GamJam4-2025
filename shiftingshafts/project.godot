@@ -28,6 +28,7 @@ project/assembly_name="ShiftingShafts"
 Rigidbody=""
 boxes=""
 player=""
+DeathFloor=""
 
 [rendering]
 
