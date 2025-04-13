@@ -1,13 +1,14 @@
-[gd_scene load_steps=12 format=4 uid="uid://cnpidwsnbg4cr"]
+[gd_scene load_steps=13 format=4 uid="uid://b2w5v7pxl31ie"]
 
 [ext_resource type="PackedScene" uid="uid://j44kt1xu0i1x" path="res://Scenes/deathZone.tscn" id="1_830in"]
-[ext_resource type="PackedScene" uid="uid://c0hc6apn2nvwj" path="res://Scenes/tilemap.tscn" id="2_mqpg6"]
+[ext_resource type="PackedScene" uid="uid://itgcxch6h6nt" path="res://Scenes/tilemap.tscn" id="2_mqpg6"]
 [ext_resource type="Texture2D" uid="uid://dieov3h8uhryo" path="res://Sprites/TilemapUpdated.png" id="3_nre08"]
 [ext_resource type="PackedScene" uid="uid://bn6a5og2sdpy4" path="res://Scenes/player.tscn" id="4_ilc6v"]
-[ext_resource type="PackedScene" uid="uid://c46e0ghgl2d5w" path="res://Scenes/box.tscn" id="5_e7bwd"]
-[ext_resource type="PackedScene" uid="uid://cxy7qndr1158q" path="res://Scenes/lever.tscn" id="6_gyoqs"]
-[ext_resource type="PackedScene" uid="uid://xi3vvgnnunvx" path="res://Scenes/door.tscn" id="7_1g43a"]
-[ext_resource type="PackedScene" uid="uid://suj8hlu3ef4s" path="res://Scenes/torch.tscn" id="8_3al25"]
+[ext_resource type="PackedScene" uid="uid://dxev6q7cf312l" path="res://Scenes/box.tscn" id="5_e7bwd"]
+[ext_resource type="PackedScene" uid="uid://b0dl3jdi0pnj6" path="res://Scenes/lever.tscn" id="6_gyoqs"]
+[ext_resource type="PackedScene" path="res://Scenes/door.tscn" id="7_1g43a"]
+[ext_resource type="PackedScene" path="res://Scenes/torch.tscn" id="8_3al25"]
+[ext_resource type="PackedScene" uid="uid://2tx6c0vsekn4" path="res://Scenes/Menu/pause_menu.tscn" id="9_w58lq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rr4r0"]
 texture = ExtResource("3_nre08")
@@ -102,3 +103,6 @@ rotation = 3.14159
 
 [node name="Torch3" parent="Camera2D/TileMap" instance=ExtResource("8_3al25")]
 position = Vector2(72, 64)
+
+[node name="pause_menu" parent="." instance=ExtResource("9_w58lq")]
+scale = Vector2(0.5, 0.5)
