@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://bfb0akjsoov5c"]
+[gd_scene load_steps=12 format=4 uid="uid://bfb0akjsoov5c"]
 
 [ext_resource type="PackedScene" uid="uid://j44kt1xu0i1x" path="res://Scenes/deathZone.tscn" id="1_bk0qv"]
 [ext_resource type="Texture2D" uid="uid://dcrdpio35li7x" path="res://Sprites/BgTilemap.png" id="1_ivr4u"]
@@ -44,6 +44,9 @@ texture = ExtResource("1_ivr4u")
 [sub_resource type="TileSet" id="TileSet_52jyn"]
 sources/0 = SubResource("TileSetAtlasSource_fdmcc")
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_743bs"]
+rough = true
+
 [node name="Level 1" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -67,9 +70,10 @@ tile_set = SubResource("TileSet_52jyn")
 position = Vector2(122, -25)
 
 [node name="Box" parent="Camera2D/Map" instance=ExtResource("1_t83nb")]
-position = Vector2(-33, -10)
+position = Vector2(0, -20)
 
 [node name="Player" parent="Camera2D/Map" instance=ExtResource("1_lp86p")]
 position = Vector2(-98, 28)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Camera2D/Map"]
+physics_material_override = SubResource("PhysicsMaterial_743bs")
