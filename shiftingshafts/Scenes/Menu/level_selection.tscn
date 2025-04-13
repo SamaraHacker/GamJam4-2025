@@ -123,6 +123,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_wfawe")
 theme_override_styles/hover = SubResource("StyleBoxFlat_uqbx6")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_p07yt")
 theme_override_styles/normal = SubResource("StyleBoxFlat_i7s1v")
+disabled = true
 text = "Level 2"
 
 [node name="Level3Button" type="Button" parent="BoxContainer/VBoxContainer"]
@@ -141,6 +142,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_wfawe")
 theme_override_styles/hover = SubResource("StyleBoxFlat_uqbx6")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_p07yt")
 theme_override_styles/normal = SubResource("StyleBoxFlat_i7s1v")
+disabled = true
 text = "Level 3"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="BoxContainer"]
@@ -166,6 +168,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_wfawe")
 theme_override_styles/hover = SubResource("StyleBoxFlat_uqbx6")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_p07yt")
 theme_override_styles/normal = SubResource("StyleBoxFlat_i7s1v")
+disabled = true
 text = "Level 4"
 
 [node name="Level5Button" type="Button" parent="BoxContainer/VBoxContainer2"]
@@ -184,6 +187,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_wfawe")
 theme_override_styles/hover = SubResource("StyleBoxFlat_uqbx6")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_p07yt")
 theme_override_styles/normal = SubResource("StyleBoxFlat_i7s1v")
+disabled = true
 text = "Level 5"
 
 [node name="Level6Button" type="Button" parent="BoxContainer/VBoxContainer2"]
@@ -202,6 +206,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_wfawe")
 theme_override_styles/hover = SubResource("StyleBoxFlat_uqbx6")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_p07yt")
 theme_override_styles/normal = SubResource("StyleBoxFlat_i7s1v")
+disabled = true
 text = "Level 6"
 
 [node name="ReturnButton" type="Button" parent="."]
