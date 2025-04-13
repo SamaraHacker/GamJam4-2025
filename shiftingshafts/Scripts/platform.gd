@@ -2,7 +2,7 @@ extends Node2D
 
 var crackTime = 0
 var steppedOn = false
-var playerOff = false
+var playerOff = 0
 
 var i = 0
 
@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 		#play cracking sound
 		crackTime = Time.get_ticks_msec()+2000
 		steppedOn = false
-	if crackTime < Time.get_ticks_msec() and playerOff:
+	if crackTime < Time.get_ticks_msec() and playerOff >= 0:
 		#wait a bit
 		queue_free()
 		
@@ -30,9 +30,10 @@ func _process(delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body):
-	playerOff = false
+	playerOff -= 1 
 	steppedOn = true
+	print(playerOff)
 
 
 func _on_area_2d_body_exited(body):
-	playerOff = true
+	playerOff += 1
