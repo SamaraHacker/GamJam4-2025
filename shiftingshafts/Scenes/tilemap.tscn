@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0hc6apn2nvwj"]
+
+[ext_resource type="Texture2D" uid="uid://cixskkgui86f" path="res://Sprites/FgTilemap.png" id="1_h2s3v"]
+[ext_resource type="Script" path="res://Scripts/map.gd" id="2_rmhj2"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oenh4"]
+texture = ExtResource("1_h2s3v")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:2/0 = 0
+2:2/0 = 0
+1:1/0 = 0
+0:2/0 = 0
+1:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_lpgs4"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_oenh4")
+
+[node name="TileMap" type="TileMap"]
+tile_set = SubResource("TileSet_lpgs4")
+format = 2
+script = ExtResource("2_rmhj2")
