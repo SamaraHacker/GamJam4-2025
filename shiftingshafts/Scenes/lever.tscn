@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cxy7qndr1158q"]
+[gd_scene load_steps=8 format=3 uid="uid://b0dl3jdi0pnj6"]
 
 [ext_resource type="Script" path="res://Scripts/lever.gd" id="1_2umab"]
 [ext_resource type="Texture2D" uid="uid://ccn543vtypwo1" path="res://Sprites/leverAnimation.png" id="2_cblo2"]
