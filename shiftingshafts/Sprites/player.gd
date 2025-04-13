@@ -26,6 +26,8 @@ var j = 0
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):  # This is for the Escape key
 		get_tree().change_scene_to_file("res://Scenes/Menu/main_menu.tscn")
+	if event.is_action_pressed("reset"):
+		get_tree().reload_current_scene()
  
  
 func _ready():

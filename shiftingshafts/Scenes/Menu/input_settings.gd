@@ -11,14 +11,15 @@ var input_actions = {
 	"ui_accept": "Move up",
 	"ui_left": "Move left",
 	"ui_right": "Move right",
-	"ui_cancel": "Escape"
+	"ui_cancel": "Escape",
+	"reset": "Reset"
 }
 
 func _ready():
 	_create_action_list()
 
 func _create_action_list():
-	InputMap.load_from_project_settings()
+	#InputMap.load_from_project_settings()
 	for item in action_list.get_children():
 		item.queue_free()
 	
@@ -70,4 +71,5 @@ func _update_action_list(button, event):
 
 
 func _on_button_pressed() -> void:
+	InputMap.load_from_project_settings()
 	_create_action_list()

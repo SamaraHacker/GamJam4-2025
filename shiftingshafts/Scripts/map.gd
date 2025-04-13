@@ -37,17 +37,19 @@ func _physics_process(delta: float) -> void:
 	if rotation_degrees != targetAngle:
 		if abs(rotation_degrees - targetAngle) > 120:
 			box.freeze = true
+			player.velocity = Vector2.ZERO
 			savedPosition = box.global_position
 			print("before", savedPosition)
 			started = true
 		elif (started):
-			#savedPosition = box.position
-			if abs(rotation_degrees - targetAngle) > 5:
+			if abs(rotation_degrees - targetAngle) < 20:
+				started = false
 				box.freeze = false
 				print("AFter", box.global_position)
 				var center = position  # TileMap's local origin
-				started = false
-				box.position = (box.position - center).rotated(PI) + center
+				#box.position = (box.position - center).rotated(PI) + center
+			else:
+				player.velocity = Vector2.ZERO
 		rotation = lerp_angle(rotation, deg_to_rad(targetAngle), 0.05)
 	
 		#print(rotation_degrees)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://01q5d2ps0302"
-path="res://.godot/imported/hatImagesUpdated.png-f38a9fca958895d202a95a386e3bb4c1.ctex"
+uid="uid://dieov3h8uhryo"
+path="res://.godot/imported/TilemapUpdated.png-434c8a4285d604a100279c0e48b89eeb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://hatImagesUpdated.png"
-dest_files=["res://.godot/imported/hatImagesUpdated.png-f38a9fca958895d202a95a386e3bb4c1.ctex"]
+source_file="res://Sprites/TilemapUpdated.png"
+dest_files=["res://.godot/imported/TilemapUpdated.png-434c8a4285d604a100279c0e48b89eeb.ctex"]
 
 [params]
 
