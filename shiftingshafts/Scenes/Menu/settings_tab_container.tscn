@@ -67,7 +67,7 @@ offset_bottom = -50.0
 grow_horizontal = 2
 grow_vertical = 2
 tab_alignment = 1
-current_tab = 2
+current_tab = 1
 
 [node name="Sound" type="TabBar" parent="TabContainer"]
 visible = false
@@ -136,7 +136,6 @@ layout_mode = 2
 bus_name = "sfx"
 
 [node name="Controls" type="TabBar" parent="TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -182,6 +181,10 @@ size_flags_vertical = 6
 layout_mode = 2
 size_flags_vertical = 6
 
+[node name="InputButton5" parent="TabContainer/Controls/Control/MarginContainer/ActionList" instance=ExtResource("3_g1wm3")]
+layout_mode = 2
+size_flags_vertical = 6
+
 [node name="Button" type="Button" parent="TabContainer/Controls/Control/MarginContainer"]
 custom_minimum_size = Vector2(500, 24)
 layout_mode = 2
@@ -191,6 +194,7 @@ focus_mode = 0
 text = "Reset to Default"
 
 [node name="Character" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
