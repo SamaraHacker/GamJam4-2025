@@ -8,6 +8,16 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if Global.completedLevel5:
+		$BoxContainer/VBoxContainer/Level6Button.disabled = false
+	if Global.completedLevel4:
+		$BoxContainer/VBoxContainer/Level5Button.disabled = false
+	if Global.completedLevel3:
+		$BoxContainer/VBoxContainer/Level4Button.disabled = false
+	if Global.completedLevel2:
+		$BoxContainer/VBoxContainer/Level3Button.disabled = false
+	if Global.completedLevel1:
+		$BoxContainer/VBoxContainer/Level2Button.disabled = false
 	pass
 
 

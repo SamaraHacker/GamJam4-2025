@@ -22,18 +22,21 @@ var j = 0
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var hat: Sprite2D = $Sprite2D/Hat
 @onready var map: TileMap = $".."
+@onready var pause_menu: Control = $"../../../pause_menu"
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):  # This is for the Escape key
-		get_tree().change_scene_to_file("res://Scenes/Menu/main_menu.tscn")
+		#get_tree().change_scene_to_file("res://Scenes/Menu/pause_menu.tscn")
+		pause_menu.visible = true
 	if event.is_action_pressed("reset"):
 		get_tree().reload_current_scene()
- 
  
 func _ready():
 	$Sprite2D/AnimationPlayer.play("Idle")
 	$Sprite2D/Hat.frame_coords.x = Global.player_hat_number
 	update_player_colors()
+	get_tree().paused = false
+	pause_menu.visible = false
  
 func update_player_colors():
 	print("Updating player colors!")
