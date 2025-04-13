@@ -1,0 +1,42 @@
+[gd_scene load_steps=9 format=3 uid="uid://c8ueeye8pndto"]
+
+[ext_resource type="PackedScene" uid="uid://c0hc6apn2nvwj" path="res://Scenes/tilemap.tscn" id="1_kt5qy"]
+[ext_resource type="PackedScene" uid="uid://bn6a5og2sdpy4" path="res://Scenes/player.tscn" id="2_svaqt"]
+[ext_resource type="PackedScene" uid="uid://dwrjxtn80wndy" path="res://Scenes/platform.tscn" id="3_m7yvg"]
+[ext_resource type="PackedScene" uid="uid://cxy7qndr1158q" path="res://Scenes/lever.tscn" id="4_67rph"]
+[ext_resource type="PackedScene" uid="uid://xi3vvgnnunvx" path="res://Scenes/door.tscn" id="5_wuu6h"]
+[ext_resource type="PackedScene" uid="uid://suj8hlu3ef4s" path="res://Scenes/torch.tscn" id="6_qnhvc"]
+[ext_resource type="PackedScene" uid="uid://c46e0ghgl2d5w" path="res://Scenes/box.tscn" id="7_ptvjd"]
+[ext_resource type="PackedScene" uid="uid://j44kt1xu0i1x" path="res://Scenes/deathZone.tscn" id="8_5717b"]
+
+[node name="level_6" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="TileMap" parent="Camera2D" instance=ExtResource("1_kt5qy")]
+layer_0/tile_data = PackedInt32Array(-10, 65536, 0, -262151, 131072, 0, -65546, 131072, 0, -131082, 131072, 0, -196618, 131072, 0, -262154, 131072, 0, -327690, 131072, 0, -327689, 131072, 0, -327688, 131072, 0, -327687, 131072, 0, 65526, 131072, 0, 196598, 131072, 0, 262134, 131072, 0, 327670, 131072, 0, 393206, 131072, 0, 393207, 131072, 0, 393208, 131072, 0, 393209, 131072, 0, 393210, 131072, 0, 393211, 131072, 0, 393212, 131072, 0, 393213, 131072, 0, 393214, 131072, 0, 393215, 65536, 0, 327680, 65536, 0, 327681, 131072, 0, 327682, 131072, 0, 327683, 131072, 0, 327684, 131072, 0, 327685, 131072, 0, 327686, 131072, 0, 327687, 131072, 0, 327688, 131072, 0, 327689, 131072, 0, 262153, 131072, 0, 196617, 131072, 0, 131081, 131072, 0, 65545, 131072, 0, 9, 131072, 0, -65527, 131072, 0, -393214, 131072, 0, -393213, 131072, 0, -393212, 131072, 0, -393211, 131072, 0, -393210, 131072, 0, -393209, 131072, 0, -262135, 131072, 0, -196599, 131072, 0, -131063, 131072, 0, 327675, 196608, 3, 327674, 131072, 0, 327673, 131072, 0, 262138, 196608, 3, 262137, 196608, 3, 327672, 131072, 0, 327671, 131072, 0, 262136, 196608, 3, 262135, 196608, 3, 327676, 196608, 3, 327677, 196608, 3, 327678, 196608, 3, 262145, 196608, 3, 262146, 196608, 3, 262147, 196608, 3, 262148, 196608, 3, 262149, 196608, 3, 262150, 196608, 3, 262151, 196608, 3, 262152, 196608, 3, -327678, 131072, 0, -327677, 131072, 0, -327676, 131072, 0, -327675, 131072, 0, -327674, 131072, 0, -327673, 131072, 0, -327672, 131072, 0, -262136, 131072, 0, -262137, 131072, 0, -262138, 131072, 0, -262139, 131072, 0, -262140, 131072, 0, -262141, 131072, 0, -262142, 131072, 0, -196615, 131072, 0, -196617, 131072, 0, -262153, 131072, 0, -262152, 131072, 0, -196616, 131072, 0, 196599, 196608, 2, 196600, 196608, 2, 196601, 196608, 2, 196602, 196608, 2, 262139, 196608, 2, 262140, 196608, 2, 262141, 196608, 2, 262142, 196608, 2, 196609, 196608, 2, 196610, 196608, 2, 196611, 196608, 2, 196612, 196608, 2, 196613, 196608, 2, 196614, 196608, 2, 196615, 196608, 2, 196616, 196608, 2, 327679, 65536, 0, 262144, 65536, 0, 196608, 196608, 2, 262143, 196608, 2, -327671, 65536, 0, -393207, 65536, 0, -393208, 65536, 0, 131062, 65536, 0)
+
+[node name="Player" parent="Camera2D/TileMap" instance=ExtResource("2_svaqt")]
+position = Vector2(-131, 30)
+
+[node name="FallingPlatform2" parent="Camera2D/TileMap" instance=ExtResource("3_m7yvg")]
+position = Vector2(-32, -16)
+scale = Vector2(-1, -1)
+
+[node name="lever" parent="Camera2D/TileMap" instance=ExtResource("4_67rph")]
+position = Vector2(116, 56)
+
+[node name="Door" parent="Camera2D/TileMap" instance=ExtResource("5_wuu6h")]
+position = Vector2(-127, -32)
+scale = Vector2(-1, -1)
+
+[node name="Torch" parent="Camera2D/TileMap" instance=ExtResource("6_qnhvc")]
+position = Vector2(-119, -27)
+scale = Vector2(-0.5, -0.5)
+
+[node name="Box" parent="Camera2D/TileMap" instance=ExtResource("7_ptvjd")]
+position = Vector2(51, 41)
+
+[node name="DeathZone" parent="Camera2D" instance=ExtResource("8_5717b")]
+position = Vector2(0, 190)
