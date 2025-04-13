@@ -31,7 +31,6 @@ func _physics_process(delta: float) -> void:
 		dir = -1
 	
 	boxLocation = (box.position.x + offset) * dir
-	print("Box location", boxLocation)
 	targetAngle = (boxLocation/5)+centerOfRotation
 	
 	targetAngle = clamp(targetAngle, centerOfRotation -30, centerOfRotation + 30)
@@ -58,8 +57,6 @@ func _physics_process(delta: float) -> void:
 			else:
 				player.velocity = Vector2.ZERO
 		rotation = lerp_angle(rotation, deg_to_rad(targetAngle), 0.05)
-		print(rotation_degrees)
-		print(targetAngle)
 	
 	#print("Bot rotation", box.rotation)
 	box.global_rotation = global_rotation
