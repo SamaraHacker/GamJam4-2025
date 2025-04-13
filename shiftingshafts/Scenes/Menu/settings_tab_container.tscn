@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cpdh0xr4ly4es" path="res://Scenes/Menu/input_button.tscn" id="3_g1wm3"]
 [ext_resource type="Script" path="res://Scripts/AnimatedScriptColorPicker.gd" id="4_1some"]
 [ext_resource type="Script" path="res://Scenes/Menu/hat_selection.gd" id="7_unmap"]
-[ext_resource type="Texture2D" uid="uid://chu407lmx7gut" path="res://Sprites/hatImagesUpdated.png" id="8_o7peg"]
+[ext_resource type="Texture2D" uid="uid://dhb6e18c1fnak" path="res://Sprites/hatImagesUpdated.png" id="8_o7peg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_on81i"]
 bg_color = Color(0.624999, 0.528839, 0.891467, 1)
@@ -261,7 +261,6 @@ custom_minimum_size = Vector2(375, 375)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
-script = ExtResource("7_unmap")
 
 [node name="Label" type="Label" parent="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer2"]
 layout_mode = 2
@@ -276,14 +275,20 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 2
 
-[node name="Button" type="Button" parent="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer2/HBoxContainer"]
+[node name="PrevHatButton" type="Button" parent="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 2
 text = "Prev"
 
-[node name="Button2" type="Button" parent="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer2/HBoxContainer"]
+[node name="HatLabel" type="Label" parent="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Hat Number: "
+horizontal_alignment = 1
+
+[node name="NextHatButton" type="Button" parent="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 size_flags_horizontal = 10
@@ -295,15 +300,19 @@ material = SubResource("ShaderMaterial_xmu4h")
 position = Vector2(204, 273)
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_sq6rl")
-script = ExtResource("4_1some")
 
 [node name="Hat" type="Sprite2D" parent="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer2/AnimatedSprite2D"]
-position = Vector2(-0.2, -10.9)
+position = Vector2(-1.3, -10.8)
 rotation = -0.16057
-scale = Vector2(1, 1)
 texture = ExtResource("8_o7peg")
-hframes = 6
+hframes = 7
+frame = 5
+script = ExtResource("7_unmap")
 
 [connection signal="pressed" from="TabContainer/Controls/Control/MarginContainer/Button" to="TabContainer/Controls/Control" method="_on_button_pressed"]
 [connection signal="color_changed" from="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/MainColorPickerButton" to="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/AnimatedSprite2D" method="_on_main_color_picker_color_changed"]
 [connection signal="color_changed" from="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/SecondaryColorPickerButton" to="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/AnimatedSprite2D" method="_on_color_picker_button_color_changed"]
+[connection signal="pressed" from="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer2/HBoxContainer/PrevHatButton" to="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer2" method="_on_prev_hat_button_pressed"]
+[connection signal="pressed" from="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer2/HBoxContainer/PrevHatButton" to="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer2/AnimatedSprite2D/Hat" method="_on_prev_hat_button_pressed"]
+[connection signal="pressed" from="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer2/HBoxContainer/NextHatButton" to="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer2" method="_on_next_hat_button_pressed"]
+[connection signal="pressed" from="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer2/HBoxContainer/NextHatButton" to="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer2/AnimatedSprite2D/Hat" method="_on_next_hat_button_pressed"]
