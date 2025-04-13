@@ -17,7 +17,7 @@ var i = 0
 var j = 0
 
 func _ready():
-	offset = box.position.x - position.x 
+	offset =0 #+ position.x - box.position.x
 
 @onready var box: RigidBody2D = $Box
 @onready var player: CharacterBody2D = $Player
@@ -39,31 +39,20 @@ func _physics_process(delta: float) -> void:
 			box.freeze = true
 			player.velocity = Vector2.ZERO
 			savedPosition = box.global_position
-			print("before", savedPosition)
+			#print("before", savedPosition)
 			started = true
 		elif (started):
 			if abs(rotation_degrees - targetAngle) < 20:
 				started = false
 				box.freeze = false
-				print("AFter", box.global_position)
+				#print("After", box.global_position)
 				var center = position  # TileMap's local origin
 				#box.position = (box.position - center).rotated(PI) + center
 			else:
 				player.velocity = Vector2.ZERO
 		rotation = lerp_angle(rotation, deg_to_rad(targetAngle), 0.05)
 	
-		#print(rotation_degrees)
-		#print(targetAngle)
-	#if rotation_degrees > maxRotation:
-	#	while rotation_degrees > maxRotation:
-	#		rotation_degrees -= abs(boxLocation)*rotationScalar
-	#elif rotation_degrees < maxRotation:
-	#	while rotation_degrees < maxRotation:
-	#		rotation_degrees += abs(boxLocation)*rotationScalar
-	#elif rotation_degrees < maxRotation and rotation_degrees > maxRotation:
-	#	rotation_degrees += boxLocation*rotationScalar
 	
-	#box.rotation = rotation
 	#print("Bot rotation", box.rotation)
 	box.global_rotation = global_rotation
 	#box.global_rotation_degrees = global_rotation_degrees		

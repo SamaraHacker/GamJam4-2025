@@ -35,6 +35,7 @@ Rigidbody=""
 boxes=""
 player=""
 DeathFloor=""
+Platforms=""
 
 [input]
 
