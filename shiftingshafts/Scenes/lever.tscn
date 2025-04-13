@@ -1,10 +1,47 @@
-[gd_scene load_steps=4 format=3 uid="uid://cxy7qndr1158q"]
+[gd_scene load_steps=8 format=3 uid="uid://cxy7qndr1158q"]
 
 [ext_resource type="Script" path="res://Scripts/lever.gd" id="1_2umab"]
-[ext_resource type="Texture2D" uid="uid://dh2doqc4kai1q" path="res://Sprites/leverImage.png" id="2_o86fm"]
+[ext_resource type="Texture2D" uid="uid://ccn543vtypwo1" path="res://Sprites/leverAnimation.png" id="2_cblo2"]
+[ext_resource type="AudioStream" uid="uid://1aoc80bfweg" path="res://Sounds/switchSfx.wav" id="3_m372d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7bsik"]
 size = Vector2(20, 14)
+
+[sub_resource type="Animation" id="Animation_p862x"]
+resource_name = "Flip"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 2, 1]
+}
+
+[sub_resource type="Animation" id="Animation_6fuuf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5hami"]
+_data = {
+"Flip": SubResource("Animation_p862x"),
+"RESET": SubResource("Animation_6fuuf")
+}
 
 [node name="lever" type="Area2D"]
 script = ExtResource("1_2umab")
@@ -14,6 +51,15 @@ position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_7bsik")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_o86fm")
+texture = ExtResource("2_cblo2")
+hframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_5hami")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_m372d")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

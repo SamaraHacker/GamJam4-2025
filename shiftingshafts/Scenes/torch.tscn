@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://suj8hlu3ef4s"]
+
+[ext_resource type="Texture2D" uid="uid://dbj86rhmqh8cu" path="res://Sprites/torchAnimation.png" id="1_hvoee"]
+[ext_resource type="Script" path="res://Scripts/torch.gd" id="2_xdu3x"]
+
+[sub_resource type="Animation" id="Animation_k5y22"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_fq2x0"]
+resource_name = "Torch"
+length = 0.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_guvdg"]
+_data = {
+"RESET": SubResource("Animation_k5y22"),
+"Torch": SubResource("Animation_fq2x0")
+}
+
+[node name="Torch" type="Sprite2D"]
+z_index = -2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_hvoee")
+hframes = 5
+script = ExtResource("2_xdu3x")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_guvdg")
+}

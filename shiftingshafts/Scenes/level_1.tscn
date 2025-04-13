@@ -1,11 +1,13 @@
-[gd_scene load_steps=12 format=4 uid="uid://bfb0akjsoov5c"]
+[gd_scene load_steps=14 format=4 uid="uid://bfb0akjsoov5c"]
 
-[ext_resource type="PackedScene" uid="uid://cruqc6n7lqjcj" path="res://Scenes/deathZone.tscn" id="1_bk0qv"]
+[ext_resource type="PackedScene" uid="uid://j44kt1xu0i1x" path="res://Scenes/deathZone.tscn" id="1_bk0qv"]
 [ext_resource type="Texture2D" uid="uid://dcrdpio35li7x" path="res://Sprites/BgTilemap.png" id="1_ivr4u"]
 [ext_resource type="PackedScene" uid="uid://bn6a5og2sdpy4" path="res://Scenes/player.tscn" id="1_lp86p"]
-[ext_resource type="PackedScene" uid="uid://dxev6q7cf312l" path="res://Scenes/box.tscn" id="1_t83nb"]
+[ext_resource type="PackedScene" uid="uid://c46e0ghgl2d5w" path="res://Scenes/box.tscn" id="1_t83nb"]
 [ext_resource type="Script" path="res://Scripts/map.gd" id="2_i41of"]
-[ext_resource type="PackedScene" path="res://Scenes/lever.tscn" id="4_drkal"]
+[ext_resource type="PackedScene" uid="uid://cxy7qndr1158q" path="res://Scenes/lever.tscn" id="4_drkal"]
+[ext_resource type="PackedScene" uid="uid://xi3vvgnnunvx" path="res://Scenes/door.tscn" id="7_rrffm"]
+[ext_resource type="PackedScene" uid="uid://suj8hlu3ef4s" path="res://Scenes/torch.tscn" id="8_a2iya"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dc4x7"]
 texture = ExtResource("1_ivr4u")
@@ -77,3 +79,16 @@ position = Vector2(-98, 28)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Camera2D/Map"]
 physics_material_override = SubResource("PhysicsMaterial_743bs")
+
+[node name="Door" parent="Camera2D/Map" instance=ExtResource("7_rrffm")]
+z_index = -1
+position = Vector2(-94, -32)
+scale = Vector2(-1, -1)
+nextLevel = "level_2"
+
+[node name="Torch" parent="Camera2D/Map" instance=ExtResource("8_a2iya")]
+position = Vector2(56, -24)
+
+[node name="Torch2" parent="Camera2D/Map" instance=ExtResource("8_a2iya")]
+position = Vector2(-87, -24)
+scale = Vector2(-0.5, -0.5)

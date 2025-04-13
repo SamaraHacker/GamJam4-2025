@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=3 uid="uid://xi3vvgnnunvx"]
+
+[ext_resource type="Script" path="res://Scripts/door.gd" id="1_ce3rb"]
+[ext_resource type="Texture2D" uid="uid://r5sgflieytxm" path="res://Sprites/DoorAnimation.png" id="1_xft7s"]
+[ext_resource type="AudioStream" uid="uid://celf4k8q8lthf" path="res://Sounds/doorOpenSfx.wav" id="3_h05s2"]
+
+[sub_resource type="Animation" id="Animation_nvrgr"]
+resource_name = "Open"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.366667, 0.433333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_2oafr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lve72"]
+_data = {
+"Open": SubResource("Animation_nvrgr"),
+"RESET": SubResource("Animation_2oafr")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7hsoa"]
+size = Vector2(12, 11)
+
+[node name="Door" type="Area2D"]
+script = ExtResource("1_ce3rb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_xft7s")
+hframes = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_lve72")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 5)
+shape = SubResource("RectangleShape2D_7hsoa")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_h05s2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
