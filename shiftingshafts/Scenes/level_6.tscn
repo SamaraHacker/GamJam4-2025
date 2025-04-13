@@ -55,6 +55,7 @@ position = Vector2(96, 55)
 [node name="Door" parent="Camera2D/TileMap" instance=ExtResource("5_wuu6h")]
 position = Vector2(-112, 0)
 scale = Vector2(-1, -1)
+nextLevel = "win_screen"
 
 [node name="Torch" parent="Camera2D/TileMap" instance=ExtResource("6_qnhvc")]
 position = Vector2(-104, -8)
