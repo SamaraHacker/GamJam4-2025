@@ -9,11 +9,11 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Global.completedLevel5:
-		$BoxContainer/VBoxContainer/Level6Button.disabled = false
+		$BoxContainer/VBoxContainer2/Level6Button.disabled = false
 	if Global.completedLevel4:
-		$BoxContainer/VBoxContainer/Level5Button.disabled = false
+		$BoxContainer/VBoxContainer2/Level5Button.disabled = false
 	if Global.completedLevel3:
-		$BoxContainer/VBoxContainer/Level4Button.disabled = false
+		$BoxContainer/VBoxContainer2/Level4Button.disabled = false
 	if Global.completedLevel2:
 		$BoxContainer/VBoxContainer/Level3Button.disabled = false
 	if Global.completedLevel1:
@@ -36,16 +36,20 @@ func _on_level_2_button_pressed() -> void:
 
 
 func _on_level_3_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/level_3.tscn")
 	pass # Replace with function body.
 
 
 func _on_level_4_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/level_4.tscn")
 	pass # Replace with function body.
 
 
 func _on_level_5_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/level_5.tscn")
 	pass # Replace with function body.
 
 
 func _on_level_6_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/level_6.tscn")
 	pass # Replace with function body.
