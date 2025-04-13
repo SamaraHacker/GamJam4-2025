@@ -9,7 +9,7 @@ uniform vec4 NEWCOLORSECONDARY : source_color;
 
 void fragment() {
     vec4 curr_color = texture(TEXTURE, UV);
-    
+
     // Use a threshold to compare the colors more reliably (to avoid precision issues)
     float threshold = 0.01;  // Adjust as needed to allow for slight differences
 
