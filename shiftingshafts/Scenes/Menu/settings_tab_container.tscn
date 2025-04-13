@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b60jo7ysqxcal"]
+[gd_scene load_steps=15 format=3 uid="uid://b60jo7ysqxcal"]
 
 [ext_resource type="PackedScene" uid="uid://dqudh3t042pfl" path="res://Scenes/Menu/volume_slider.tscn" id="1_7stbu"]
 [ext_resource type="Shader" path="res://Scenes/Menu/settings_tab_container.gdshader" id="2_h3uow"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/AnimatedScriptColorPicker.gd" id="4_1some"]
 [ext_resource type="Script" path="res://Scenes/Menu/hat_selection.gd" id="7_unmap"]
 [ext_resource type="Texture2D" uid="uid://dhb6e18c1fnak" path="res://Sprites/hatImagesUpdated.png" id="8_o7peg"]
+[ext_resource type="Script" path="res://Scenes/Menu/brightness_slider.gd" id="9_26ymp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_on81i"]
 bg_color = Color(0.624999, 0.528839, 0.891467, 1)
@@ -67,7 +68,7 @@ offset_bottom = -50.0
 grow_horizontal = 2
 grow_vertical = 2
 tab_alignment = 1
-current_tab = 1
+current_tab = 3
 
 [node name="Sound" type="TabBar" parent="TabContainer"]
 visible = false
@@ -136,6 +137,7 @@ layout_mode = 2
 bus_name = "sfx"
 
 [node name="Controls" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -313,6 +315,57 @@ hframes = 7
 frame = 5
 script = ExtResource("7_unmap")
 
+[node name="Game Options" type="TabBar" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Game Options"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Game Options/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="TabContainer/Game Options/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_on81i")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Game Options/MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = -16
+
+[node name="master_label" type="Label" parent="TabContainer/Game Options/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 30
+text = "Brightness"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BrightnessSlider" type="HSlider" parent="TabContainer/Game Options/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+min_value = 0.15
+max_value = 1.6
+step = 0.01
+value = 1.0
+script = ExtResource("9_26ymp")
+
 [connection signal="pressed" from="TabContainer/Controls/Control/MarginContainer/Button" to="TabContainer/Controls/Control" method="_on_button_pressed"]
 [connection signal="color_changed" from="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/MainColorPickerButton" to="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/AnimatedSprite2D" method="_on_main_color_picker_color_changed"]
 [connection signal="color_changed" from="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/SecondaryColorPickerButton" to="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/AnimatedSprite2D" method="_on_color_picker_button_color_changed"]
@@ -320,3 +373,4 @@ script = ExtResource("7_unmap")
 [connection signal="pressed" from="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer2/HBoxContainer/PrevHatButton" to="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer2/AnimatedSprite2D/Hat" method="_on_prev_hat_button_pressed"]
 [connection signal="pressed" from="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer2/HBoxContainer/NextHatButton" to="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer2" method="_on_next_hat_button_pressed"]
 [connection signal="pressed" from="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer2/HBoxContainer/NextHatButton" to="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer2/AnimatedSprite2D/Hat" method="_on_next_hat_button_pressed"]
+[connection signal="value_changed" from="TabContainer/Game Options/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/BrightnessSlider" to="TabContainer/Game Options/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/BrightnessSlider" method="_on_value_changed"]

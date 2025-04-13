@@ -1,16 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://cxy7qndr1158q"]
+[gd_scene load_steps=4 format=3 uid="uid://b0dl3jdi0pnj6"]
 
 [ext_resource type="Script" path="res://Scripts/lever.gd" id="1_2umab"]
 [ext_resource type="Texture2D" uid="uid://dh2doqc4kai1q" path="res://Sprites/leverImage.png" id="2_o86fm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7bsik"]
-size = Vector2(20, 14)
+size = Vector2(12, 5)
 
 [node name="lever" type="Area2D"]
 script = ExtResource("1_2umab")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -3)
+position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_7bsik")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

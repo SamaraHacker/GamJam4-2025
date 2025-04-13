@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bn6a5og2sdpy4" path="res://Scenes/player.tscn" id="1_lp86p"]
 [ext_resource type="PackedScene" uid="uid://dxev6q7cf312l" path="res://Scenes/box.tscn" id="1_t83nb"]
 [ext_resource type="Script" path="res://Scripts/map.gd" id="2_i41of"]
-[ext_resource type="PackedScene" path="res://Scenes/lever.tscn" id="4_drkal"]
+[ext_resource type="PackedScene" uid="uid://b0dl3jdi0pnj6" path="res://Scenes/lever.tscn" id="4_drkal"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dc4x7"]
 texture = ExtResource("1_ivr4u")
