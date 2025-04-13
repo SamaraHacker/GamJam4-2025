@@ -30,7 +30,7 @@ func _input(event):
  
 func _ready():
 	$Sprite2D/AnimationPlayer.play("Idle")
-	
+	$Sprite2D/Hat.frame_coords.x = Global.player_hat_number
 	update_player_colors()
  
 func update_player_colors():
