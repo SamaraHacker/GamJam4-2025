@@ -2,6 +2,7 @@ extends AnimatableBody2D
 
 var crackTime = 0
 var steppedOn = false
+var playerOff = false
 
 var i = 0
 
@@ -16,14 +17,19 @@ func _process(delta: float) -> void:
 	if steppedOn:
 		$AnimationPlayer.play("Cracking")
 		#play cracking sound
-		if i == 0:
-			crackTime = Time.get_ticks_msec()+2000
-		i=1
-	if steppedOn and crackTime < Time.get_ticks_msec():
-		$AnimationPlayer.play("Falling")
+		crackTime = Time.get_ticks_msec()+2000
+		steppedOn = false
+	if crackTime < Time.get_ticks_msec() and playerOff:
+		#wait a bit
+		queue_free()
+		
 
 
-#func _on_area_2d_body_entered(body):
-#	
-#	steppedOn = true
-#	print(steppedOn)
+func _on_area_2d_body_entered(body):
+	
+	steppedOn = true
+	print(steppedOn)
+
+
+func _on_area_2d_body_exited(body):
+	playerOff = true
