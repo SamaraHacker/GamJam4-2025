@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bbo6ksftbhiin"]
 
-[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_s4uss"]
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_pxf04"]
 [ext_resource type="Texture2D" uid="uid://cjfjp5jnb0gmk" path="res://Sprites/gameImage.png" id="2_qa8x0"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ykhj4"]
@@ -46,7 +46,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_s4uss")
+script = ExtResource("1_pxf04")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1

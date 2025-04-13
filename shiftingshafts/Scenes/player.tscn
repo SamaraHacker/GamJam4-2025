@@ -1,29 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://bn6a5og2sdpy4"]
+[gd_scene load_steps=6 format=3 uid="uid://bn6a5og2sdpy4"]
 
 [ext_resource type="Script" path="res://Sprites/player.gd" id="1_geluq"]
-[ext_resource type="Texture2D" uid="uid://c23pw2w0exaqa" path="res://Sprites/IdleAnimation.png" id="1_wrule"]
+[ext_resource type="Shader" path="res://Scenes/player.gdshader" id="2_g5seg"]
+[ext_resource type="Texture2D" uid="uid://cqt5k1dx6kpbl" path="res://Sprites/spriteSheetBlub.png" id="3_5lgl0"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bfsbu"]
-atlas = ExtResource("1_wrule")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kskh2"]
-atlas = ExtResource("1_wrule")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_lbkth"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bfsbu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kskh2")
-}],
-"loop": true,
-"name": &"default",
-"speed": 2.0
-}]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e1xgj"]
+shader = ExtResource("2_g5seg")
+shader_parameter/OLDCOLORMAIN = Color(1, 1, 1, 1)
+shader_parameter/OLDCOLORSECONDARY = Color(0.74902, 0.74902, 0.74902, 1)
+shader_parameter/NEWCOLORMAIN = Color(1, 1, 1, 1)
+shader_parameter/NEWCOLORSECONDARY = Color(0.74902, 0.74902, 0.74902, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hbjk"]
 size = Vector2(6, 12)
@@ -31,9 +17,11 @@ size = Vector2(6, 12)
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_geluq")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_lbkth")
-frame_progress = 0.2613
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_e1xgj")
+texture = ExtResource("3_5lgl0")
+hframes = 4
+vframes = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["player"]]
 position = Vector2(-1, 2)

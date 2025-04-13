@@ -10,11 +10,31 @@ const gravScalar = 1.1
 var canJump = false
 var jumpTicks = 0
 var jumpPressed = false
+var world_rotated = false
 
 var collisionBox = CollisionShape2D.new()
 
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
+@onready var sprite_2d: Sprite2D = $Sprite2D
+ 
+
+func _input(event):
+	if event.is_action_pressed("ui_cancel"):  # This is for the Escape key
+		get_tree().change_scene_to_file("res://Scenes/Menu/main_menu.tscn")
+ 
+ 
+func _ready():
+	update_player_colors()
+ 
+func update_player_colors():
+	print("Updating player colors!")
+	var shader_material := sprite_2d.material as ShaderMaterial
+	if shader_material:
+		print("Setting shader parameters!")
+		shader_material.set_shader_parameter("NEWCOLORMAIN", Global.player_main_color)
+		shader_material.set_shader_parameter("NEWCOLORSECONDARY", Global.player_secondary_color)
+	else:
+		print("ShaderMaterial not found on Sprite2D!")
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -67,9 +87,9 @@ func _physics_process(delta: float) -> void:
 		
 	if direction != 0:
 		if world_rotated:
-			animated_sprite_2d.scale.x = -direction
+			sprite_2d.scale.x = -direction
 		else:
-			animated_sprite_2d.scale.x = direction
+			sprite_2d.scale.x = direction
 	
 	
 	move_and_slide()
