@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://bbo6ksftbhiin"]
 
-[ext_resource type="Script" path="res://Scripts/Menu/main_menu.gd" id="1_s4uss"]
-[ext_resource type="Texture2D" uid="uid://dle34ux3oe072" path="res://Sprites/MenuBackground.png" id="2_mlw6b"]
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_s4uss"]
+[ext_resource type="Texture2D" uid="uid://cjfjp5jnb0gmk" path="res://Sprites/gameImage.png" id="2_qa8x0"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ykhj4"]
-texture = ExtResource("2_mlw6b")
+texture = ExtResource("2_qa8x0")
 modulate_color = Color(0.412152, 0.412152, 0.412152, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jon35"]
