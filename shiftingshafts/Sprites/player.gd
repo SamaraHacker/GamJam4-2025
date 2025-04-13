@@ -14,9 +14,14 @@ var world_rotated = false
 
 var collisionBox = CollisionShape2D.new()
 
+var pushTime = 0
+
+var i = 0
+var j = 0
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
- 
+@onready var hat: Sprite2D = $Sprite2D/Hat
+
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):  # This is for the Escape key
@@ -24,6 +29,8 @@ func _input(event):
  
  
 func _ready():
+	$Sprite2D/AnimationPlayer.play("Idle")
+	
 	update_player_colors()
  
 func update_player_colors():
@@ -43,10 +50,19 @@ func _physics_process(delta: float) -> void:
 
 	# Handle jump.
 	if (Input.is_action_pressed("ui_accept") or Input.is_action_pressed("ui_up")) and canJump:
+		$Sprite2D/AnimationPlayer.play("Jump")
 		velocity.y = JUMP_VELOCITY
 		jumpTicks = 0
 		
 	if is_on_floor():
+		if not(Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right")):
+			$Sprite2D/AnimationPlayer.play("Idle")
+		elif Time.get_ticks_msec() > pushTime:
+			$Sprite2D/AnimationPlayer.play("Walk")
+			if(j % 10 == 0):
+				hat.rotation_degrees += ((i % 2) * 2 - 1)*5
+				i += 1
+			j += 1
 		canJump = true
 		jumpTicks = 5
 	
@@ -61,6 +77,9 @@ func _physics_process(delta: float) -> void:
 		collisionBox = collision.get_collider()
 		if collisionBox.is_in_group("boxes") and abs(collisionBox.get_linear_velocity().x)< MAX_VELOCITY:
 		#	collisionBox.lock_rotation = true
+			if is_on_floor() and abs(position.y - collisionBox.position.y) < 5:
+				pushTime = Time.get_ticks_msec()+200
+				$Sprite2D/AnimationPlayer.play("Push")
 			collisionBox.apply_central_impulse(collision.get_normal()*-PUSH_SPEED)
 	
 	
