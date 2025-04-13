@@ -1,0 +1,309 @@
+[gd_scene load_steps=14 format=3 uid="uid://b60jo7ysqxcal"]
+
+[ext_resource type="PackedScene" uid="uid://dqudh3t042pfl" path="res://Scenes/Menu/volume_slider.tscn" id="1_7stbu"]
+[ext_resource type="Shader" path="res://Scenes/Menu/settings_tab_container.gdshader" id="2_h3uow"]
+[ext_resource type="Script" path="res://Scenes/Menu/input_settings.gd" id="2_pvqxg"]
+[ext_resource type="Texture2D" uid="uid://c23pw2w0exaqa" path="res://Sprites/IdleAnimation.png" id="2_xjkk4"]
+[ext_resource type="PackedScene" uid="uid://cpdh0xr4ly4es" path="res://Scenes/Menu/input_button.tscn" id="3_g1wm3"]
+[ext_resource type="Script" path="res://Scripts/AnimatedScriptColorPicker.gd" id="4_1some"]
+[ext_resource type="Script" path="res://Scenes/Menu/hat_selection.gd" id="7_unmap"]
+[ext_resource type="Texture2D" uid="uid://chu407lmx7gut" path="res://Sprites/hatImagesUpdated.png" id="8_o7peg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_on81i"]
+bg_color = Color(0.624999, 0.528839, 0.891467, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_size = 5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xmu4h"]
+shader = ExtResource("2_h3uow")
+shader_parameter/OLDCOLORMAIN = Color(1, 1, 1, 1)
+shader_parameter/OLDCOLORSECONDARY = Color(0.74902, 0.74902, 0.74902, 1)
+shader_parameter/NEWCOLORMAIN = Color(1, 1, 1, 1)
+shader_parameter/NEWCOLORSECONDARY = Color(0.74902, 0.74902, 0.74902, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bfsbu"]
+atlas = ExtResource("2_xjkk4")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kskh2"]
+atlas = ExtResource("2_xjkk4")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sq6rl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bfsbu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kskh2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="Settings_Tab_container" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = 50.0
+offset_right = -100.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+tab_alignment = 1
+current_tab = 2
+
+[node name="Sound" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Sound"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Sound/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="TabContainer/Sound/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_on81i")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Sound/MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="master_label" type="Label" parent="TabContainer/Sound/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 0
+text = "Master Volume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="master_volume" parent="TabContainer/Sound/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer" instance=ExtResource("1_7stbu")]
+layout_mode = 2
+bus_name = "Master"
+
+[node name="music_label" type="Label" parent="TabContainer/Sound/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "Music Volume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="music_slider" parent="TabContainer/Sound/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer" instance=ExtResource("1_7stbu")]
+layout_mode = 2
+bus_name = "music"
+
+[node name="sfx_label" type="Label" parent="TabContainer/Sound/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "SFX Volume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="sfx_slider" parent="TabContainer/Sound/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer" instance=ExtResource("1_7stbu")]
+layout_mode = 2
+bus_name = "sfx"
+
+[node name="Controls" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Control" type="Control" parent="TabContainer/Controls"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_pvqxg")
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Controls/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 48
+
+[node name="ActionList" type="VBoxContainer" parent="TabContainer/Controls/Control/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = -64
+alignment = 1
+
+[node name="InputButton" parent="TabContainer/Controls/Control/MarginContainer/ActionList" instance=ExtResource("3_g1wm3")]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="InputButton2" parent="TabContainer/Controls/Control/MarginContainer/ActionList" instance=ExtResource("3_g1wm3")]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="InputButton3" parent="TabContainer/Controls/Control/MarginContainer/ActionList" instance=ExtResource("3_g1wm3")]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="InputButton4" parent="TabContainer/Controls/Control/MarginContainer/ActionList" instance=ExtResource("3_g1wm3")]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="Button" type="Button" parent="TabContainer/Controls/Control/MarginContainer"]
+custom_minimum_size = Vector2(500, 24)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+focus_mode = 0
+text = "Reset to Default"
+
+[node name="Character" type="TabBar" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Character"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Character/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="TabContainer/Character/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(900, 400)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer"]
+custom_minimum_size = Vector2(375, 375)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="MainColorLabel" type="Label" parent="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Main color"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainColorPickerButton" type="ColorPickerButton" parent="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+color = Color(0.899258, 0.899258, 0.899258, 1)
+
+[node name="SecondaryColorLabel" type="Label" parent="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Secondary Color"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SecondaryColorPickerButton" type="ColorPickerButton" parent="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0.74902, 0.74902, 0.74902, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+material = SubResource("ShaderMaterial_xmu4h")
+position = Vector2(182, 275)
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_sq6rl")
+script = ExtResource("4_1some")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer"]
+custom_minimum_size = Vector2(375, 375)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+script = ExtResource("7_unmap")
+
+[node name="Label" type="Label" parent="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Hats"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(350, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+
+[node name="Button" type="Button" parent="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 2
+text = "Prev"
+
+[node name="Button2" type="Button" parent="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+text = "Next"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer2"]
+material = SubResource("ShaderMaterial_xmu4h")
+position = Vector2(204, 273)
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_sq6rl")
+script = ExtResource("4_1some")
+
+[node name="Hat" type="Sprite2D" parent="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer2/AnimatedSprite2D"]
+position = Vector2(-0.2, -10.9)
+rotation = -0.16057
+scale = Vector2(1, 1)
+texture = ExtResource("8_o7peg")
+hframes = 6
+
+[connection signal="pressed" from="TabContainer/Controls/Control/MarginContainer/Button" to="TabContainer/Controls/Control" method="_on_button_pressed"]
+[connection signal="color_changed" from="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/MainColorPickerButton" to="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/AnimatedSprite2D" method="_on_main_color_picker_color_changed"]
+[connection signal="color_changed" from="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/SecondaryColorPickerButton" to="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/AnimatedSprite2D" method="_on_color_picker_button_color_changed"]
