@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0hc6apn2nvwj"]
+[gd_scene load_steps=5 format=3 uid="uid://itgcxch6h6nt"]
 
 [ext_resource type="Texture2D" uid="uid://bmel07q2ob83h" path="res://Sprites/TilemapUpdated (1).png" id="1_wcqpt"]
 [ext_resource type="Script" path="res://Scripts/map.gd" id="2_rmhj2"]
@@ -15,6 +15,7 @@ texture = ExtResource("1_wcqpt")
 3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:2/0 = 0
 3:0/0 = 0
+3:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, 0, 8, 0, 8, -8, 8, 8, -8, 8)
 2:0/0 = 0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
