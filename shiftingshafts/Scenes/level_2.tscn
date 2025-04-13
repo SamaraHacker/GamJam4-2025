@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://5arye5l74lhl"]
+[gd_scene load_steps=10 format=3 uid="uid://5arye5l74lhl"]
 
 [ext_resource type="PackedScene" path="res://Scenes/tilemap.tscn" id="1_d1yl6"]
-[ext_resource type="PackedScene" uid="uid://cruqc6n7lqjcj" path="res://Scenes/deathZone.tscn" id="1_htcfx"]
+[ext_resource type="PackedScene" uid="uid://j44kt1xu0i1x" path="res://Scenes/deathZone.tscn" id="1_htcfx"]
 [ext_resource type="PackedScene" uid="uid://dxev6q7cf312l" path="res://Scenes/box.tscn" id="2_h7nr8"]
 [ext_resource type="PackedScene" uid="uid://bn6a5og2sdpy4" path="res://Scenes/player.tscn" id="3_c70it"]
 [ext_resource type="Texture2D" uid="uid://dcrdpio35li7x" path="res://Sprites/BgTilemap.png" id="3_l78t2"]
 [ext_resource type="PackedScene" uid="uid://b0dl3jdi0pnj6" path="res://Scenes/lever.tscn" id="4_xoxig"]
+[ext_resource type="PackedScene" uid="uid://cead0e834iysr" path="res://Scenes/fallingPlatform.tscn" id="6_5ndl7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tp0jf"]
 texture = ExtResource("3_l78t2")
@@ -44,7 +45,10 @@ position = Vector2(74, 49)
 position = Vector2(-124, 26)
 
 [node name="lever" parent="Camera2D/TileMap" instance=ExtResource("4_xoxig")]
-position = Vector2(9, -3)
+position = Vector2(28, -11)
+
+[node name="Platform" parent="Camera2D/TileMap" instance=ExtResource("6_5ndl7")]
+position = Vector2(-44, 43)
 
 [node name="DeathZone" parent="Camera2D" instance=ExtResource("1_htcfx")]
 position = Vector2(-1, 194)

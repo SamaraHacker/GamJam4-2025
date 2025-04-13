@@ -8,7 +8,7 @@ uniform vec4 NEWCOLORSECONDARY : source_color;
 
 void fragment() {
 	vec4 curr_color = texture(TEXTURE, UV);
-	
+
 	// Compare with some tolerance for minor differences
 	float tolerance = 0.01;
 

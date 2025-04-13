@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=4 uid="uid://cfc6iw7qlq4j6"]
 
-[ext_resource type="PackedScene" uid="uid://cruqc6n7lqjcj" path="res://Scenes/deathZone.tscn" id="1_nvqx7"]
+[ext_resource type="PackedScene" uid="uid://j44kt1xu0i1x" path="res://Scenes/deathZone.tscn" id="1_nvqx7"]
 [ext_resource type="Texture2D" uid="uid://dieov3h8uhryo" path="res://Sprites/TilemapUpdated.png" id="2_7442c"]
 [ext_resource type="Script" path="res://Scripts/map.gd" id="3_orhhg"]
 [ext_resource type="PackedScene" uid="uid://b0dl3jdi0pnj6" path="res://Scenes/lever.tscn" id="4_kdbsn"]

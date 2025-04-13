@@ -1,0 +1,87 @@
+[gd_scene load_steps=10 format=3 uid="uid://cead0e834iysr"]
+
+[ext_resource type="Script" path="res://Scripts/platform.gd" id="1_42o0i"]
+[ext_resource type="Texture2D" uid="uid://t06swb81e0mi" path="res://Sprites/platformAnimation.png" id="2_6ok1o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_061f4"]
+size = Vector2(30, 4)
+
+[sub_resource type="Animation" id="Animation_86tnq"]
+resource_name = "Cracking"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_ql203"]
+resource_name = "Falling"
+length = 0.7
+
+[sub_resource type="Animation" id="Animation_mulsb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_7lx5r"]
+resource_name = "Shaking"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mc1ax"]
+_data = {
+"Cracking": SubResource("Animation_86tnq"),
+"Falling": SubResource("Animation_ql203"),
+"RESET": SubResource("Animation_mulsb"),
+"Shaking": SubResource("Animation_7lx5r")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tkxsc"]
+size = Vector2(22, 2.5)
+
+[node name="Platform" type="Node2D"]
+script = ExtResource("1_42o0i")
+
+[node name="FallingPlatform" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="FallingPlatform"]
+z_index = -1
+texture = ExtResource("2_6ok1o")
+hframes = 5
+region_rect = Rect2(112, 16, 32, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FallingPlatform" groups=["Platforms"]]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_061f4")
+one_way_collision = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FallingPlatform"]
+libraries = {
+"": SubResource("AnimationLibrary_mc1ax")
+}
+
+[node name="Area2D" type="Area2D" parent="FallingPlatform"]
+position = Vector2(0, -5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FallingPlatform/Area2D"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_tkxsc")
+
+[connection signal="body_entered" from="FallingPlatform/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="FallingPlatform/Area2D" to="." method="_on_area_2d_body_exited"]
