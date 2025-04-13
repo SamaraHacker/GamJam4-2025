@@ -1,11 +1,11 @@
 [gd_scene load_steps=12 format=4 uid="uid://bfb0akjsoov5c"]
 
-[ext_resource type="PackedScene" uid="uid://j44kt1xu0i1x" path="res://Scenes/deathZone.tscn" id="1_bk0qv"]
+[ext_resource type="PackedScene" uid="uid://cruqc6n7lqjcj" path="res://Scenes/deathZone.tscn" id="1_bk0qv"]
 [ext_resource type="Texture2D" uid="uid://dcrdpio35li7x" path="res://Sprites/BgTilemap.png" id="1_ivr4u"]
 [ext_resource type="PackedScene" uid="uid://bn6a5og2sdpy4" path="res://Scenes/player.tscn" id="1_lp86p"]
-[ext_resource type="PackedScene" uid="uid://c46e0ghgl2d5w" path="res://Scenes/box.tscn" id="1_t83nb"]
+[ext_resource type="PackedScene" uid="uid://dxev6q7cf312l" path="res://Scenes/box.tscn" id="1_t83nb"]
 [ext_resource type="Script" path="res://Scripts/map.gd" id="2_i41of"]
-[ext_resource type="PackedScene" uid="uid://cxy7qndr1158q" path="res://Scenes/lever.tscn" id="4_drkal"]
+[ext_resource type="PackedScene" path="res://Scenes/lever.tscn" id="4_drkal"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dc4x7"]
 texture = ExtResource("1_ivr4u")
