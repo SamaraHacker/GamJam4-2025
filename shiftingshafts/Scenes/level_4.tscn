@@ -1,15 +1,16 @@
-[gd_scene load_steps=14 format=4 uid="uid://xcg78ak4tuxh"]
+[gd_scene load_steps=15 format=4 uid="uid://c2qco4lv1ulf0"]
 
-[ext_resource type="PackedScene" uid="uid://c0hc6apn2nvwj" path="res://Scenes/tilemap.tscn" id="1_bwgg6"]
+[ext_resource type="PackedScene" uid="uid://itgcxch6h6nt" path="res://Scenes/tilemap.tscn" id="1_bwgg6"]
 [ext_resource type="PackedScene" uid="uid://bn6a5og2sdpy4" path="res://Scenes/player.tscn" id="2_ao8yd"]
-[ext_resource type="PackedScene" uid="uid://cxy7qndr1158q" path="res://Scenes/lever.tscn" id="3_qw25a"]
-[ext_resource type="PackedScene" uid="uid://xi3vvgnnunvx" path="res://Scenes/door.tscn" id="4_jg3oo"]
-[ext_resource type="PackedScene" uid="uid://c46e0ghgl2d5w" path="res://Scenes/box.tscn" id="5_x1nh3"]
-[ext_resource type="PackedScene" uid="uid://d3kuleds3aoyg" path="res://Scenes/fallingPlatform.tscn" id="6_1g4vk"]
-[ext_resource type="PackedScene" uid="uid://suj8hlu3ef4s" path="res://Scenes/torch.tscn" id="7_8vbvr"]
+[ext_resource type="PackedScene" uid="uid://b0dl3jdi0pnj6" path="res://Scenes/lever.tscn" id="3_qw25a"]
+[ext_resource type="PackedScene" path="res://Scenes/door.tscn" id="4_jg3oo"]
+[ext_resource type="PackedScene" uid="uid://dxev6q7cf312l" path="res://Scenes/box.tscn" id="5_x1nh3"]
+[ext_resource type="PackedScene" uid="uid://d2iht7g67o1b7" path="res://Scenes/fallingPlatform.tscn" id="6_1g4vk"]
+[ext_resource type="PackedScene" path="res://Scenes/torch.tscn" id="7_8vbvr"]
 [ext_resource type="PackedScene" uid="uid://j44kt1xu0i1x" path="res://Scenes/deathZone.tscn" id="7_e7gnn"]
 [ext_resource type="Texture2D" uid="uid://dieov3h8uhryo" path="res://Sprites/TilemapUpdated.png" id="8_oj3j2"]
 [ext_resource type="Texture2D" uid="uid://dcrdpio35li7x" path="res://Sprites/BgTilemap.png" id="9_trh5l"]
+[ext_resource type="PackedScene" uid="uid://2tx6c0vsekn4" path="res://Scenes/Menu/pause_menu.tscn" id="11_3eeqy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f8mry"]
 texture = ExtResource("8_oj3j2")
@@ -99,3 +100,6 @@ tile_set = SubResource("TileSet_0oqie")
 
 [node name="DeathZone" parent="Camera2D" instance=ExtResource("7_e7gnn")]
 position = Vector2(-2, 204)
+
+[node name="pause_menu" parent="." instance=ExtResource("11_3eeqy")]
+scale = Vector2(0.5, 0.5)
