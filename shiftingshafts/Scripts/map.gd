@@ -50,20 +50,6 @@ func _physics_process(delta: float) -> void:
 				box.position = (box.position - center).rotated(PI) + center
 		rotation = lerp_angle(rotation, deg_to_rad(targetAngle), 0.05)
 	
-		#print(rotation_degrees)
-		#print(targetAngle)
-	#if rotation_degrees > maxRotation:
-	#	while rotation_degrees > maxRotation:
-	#		rotation_degrees -= abs(boxLocation)*rotationScalar
-	#elif rotation_degrees < maxRotation:
-	#	while rotation_degrees < maxRotation:
-	#		rotation_degrees += abs(boxLocation)*rotationScalar
-	#elif rotation_degrees < maxRotation and rotation_degrees > maxRotation:
-	#	rotation_degrees += boxLocation*rotationScalar
-	
-	#box.rotation = rotation
-	#print("Bot rotation", box.rotation)
-	box.global_rotation = global_rotation
-	#box.global_rotation_degrees = global_rotation_degrees		
+	box.global_rotation = global_rotation		
 	
 	
