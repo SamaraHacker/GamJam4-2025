@@ -19,10 +19,13 @@ func _on_prev_hat_button_pressed() -> void:
 	if(hatNumber <= 6 && hatNumber > 0):
 		hatNumber -= 1
 		Global.player_hat_number = hatNumber
-
+	else:
+		hatNumber = 6
 
 func _on_next_hat_button_pressed() -> void:
 	print("Next button pressed")
 	if(hatNumber < 6 && hatNumber >= 0):
 		hatNumber += 1
 		Global.player_hat_number = hatNumber
+	else:
+		hatNumber = 0

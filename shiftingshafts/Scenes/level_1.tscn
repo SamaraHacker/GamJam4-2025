@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/map.gd" id="2_i41of"]
 [ext_resource type="PackedScene" uid="uid://b0dl3jdi0pnj6" path="res://Scenes/lever.tscn" id="4_drkal"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dc4x7"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uh5o8"]
 texture = ExtResource("1_ivr4u")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -27,7 +27,7 @@ texture = ExtResource("1_ivr4u")
 
 [sub_resource type="TileSet" id="TileSet_3dm1v"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_dc4x7")
+sources/0 = SubResource("TileSetAtlasSource_uh5o8")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fdmcc"]
 texture = ExtResource("1_ivr4u")

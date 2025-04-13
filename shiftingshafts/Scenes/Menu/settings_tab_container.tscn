@@ -11,7 +11,7 @@
 [ext_resource type="Script" path="res://Scenes/Menu/brightness_slider.gd" id="9_26ymp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_on81i"]
-bg_color = Color(0.624999, 0.528839, 0.891467, 1)
+bg_color = Color(0.54902, 0.580392, 0.811765, 1)
 corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
@@ -359,12 +359,19 @@ vertical_alignment = 1
 
 [node name="BrightnessSlider" type="HSlider" parent="TabContainer/Game Options/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 2
+size_flags_vertical = 6
 min_value = 0.15
 max_value = 1.6
 step = 0.01
 value = 1.0
 script = ExtResource("9_26ymp")
+
+[node name="Button" type="Button" parent="TabContainer/Game Options/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+text = "Reset to Default"
 
 [connection signal="pressed" from="TabContainer/Controls/Control/MarginContainer/Button" to="TabContainer/Controls/Control" method="_on_button_pressed"]
 [connection signal="color_changed" from="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/MainColorPickerButton" to="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/AnimatedSprite2D" method="_on_main_color_picker_color_changed"]
@@ -374,3 +381,4 @@ script = ExtResource("9_26ymp")
 [connection signal="pressed" from="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer2/HBoxContainer/NextHatButton" to="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer2" method="_on_next_hat_button_pressed"]
 [connection signal="pressed" from="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer2/HBoxContainer/NextHatButton" to="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer2/AnimatedSprite2D/Hat" method="_on_next_hat_button_pressed"]
 [connection signal="value_changed" from="TabContainer/Game Options/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/BrightnessSlider" to="TabContainer/Game Options/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/BrightnessSlider" method="_on_value_changed"]
+[connection signal="pressed" from="TabContainer/Game Options/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/Button" to="TabContainer/Game Options/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/BrightnessSlider" method="_on_button_pressed"]
