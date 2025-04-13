@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const PUSH_SPEED = 50
+const PUSH_SPEED = 60
 const SPEED = 125.0
 const MAX_VELOCITY = 50
 const JUMP_VELOCITY = -250.0
@@ -26,11 +26,13 @@ var j = 0
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):  # This is for the Escape key
 		get_tree().change_scene_to_file("res://Scenes/Menu/main_menu.tscn")
+	if event.is_action_pressed("reset"):
+		get_tree().reload_current_scene()
  
  
 func _ready():
 	$Sprite2D/AnimationPlayer.play("Idle")
-	
+	$Sprite2D/Hat.frame_coords.x = Global.player_hat_number
 	update_player_colors()
  
 func update_player_colors():
