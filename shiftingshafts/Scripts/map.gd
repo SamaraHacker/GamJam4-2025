@@ -15,15 +15,12 @@ func _process(delta: float) -> void:
 	elif maxRotation < -30:
 		maxRotation = -30
 	
-	if rotation_degrees > maxRotation:
-		rotation_degrees = maxRotation
-	elif rotation_degrees < maxRotation:
-		rotation_degrees = maxRotation
-	elif rotation_degrees < maxRotation and rotation_degrees > -maxRotation:
-		rotation_degrees += boxLocation*rotationScalar
-	
+	#var currentRotation = rotation_degrees
+	#rotation_degrees = maxRotation
+
+	rotation_degrees = lerp_angle(rotation_degrees, maxRotation, 0.1)
 	#box.rotation_degrees = rotation_degrees
-	box.global_rotation = global_rotation
+	#box.global_rotation = global_rotation
 	box.global_rotation_degrees = global_rotation_degrees		
 	
 	

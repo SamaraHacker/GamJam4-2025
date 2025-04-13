@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bfb0akjsoov5c"]
+[gd_scene load_steps=8 format=3 uid="uid://cjdnh8iudh8a2"]
 
 [ext_resource type="Texture2D" uid="uid://dcrdpio35li7x" path="res://Sprites/BgTilemap.png" id="1_ivr4u"]
 [ext_resource type="PackedScene" uid="uid://bn6a5og2sdpy4" path="res://Scenes/player.tscn" id="1_lp86p"]
@@ -45,7 +45,7 @@ script = ExtResource("2_i41of")
 position = Vector2(-2, -7)
 
 [node name="Player" parent="Camera2D/Map" instance=ExtResource("1_lp86p")]
-position = Vector2(-43, 9)
+position = Vector2(-88, 36)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Camera2D/Map"]
 
