@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://bn6a5og2sdpy4"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_geluq"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_geluq"]
 [ext_resource type="Shader" path="res://Scenes/player.gdshader" id="2_g5seg"]
 [ext_resource type="Texture2D" uid="uid://cqt5k1dx6kpbl" path="res://Sprites/spriteSheetBlub.png" id="3_5lgl0"]
 [ext_resource type="Texture2D" uid="uid://chu407lmx7gut" path="res://Sprites/hatImagesUpdated.png" id="4_qab3s"]
