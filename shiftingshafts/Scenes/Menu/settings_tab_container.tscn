@@ -295,12 +295,10 @@ material = SubResource("ShaderMaterial_xmu4h")
 position = Vector2(204, 273)
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_sq6rl")
-script = ExtResource("4_1some")
 
 [node name="Hat" type="Sprite2D" parent="TabContainer/Character/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer2/AnimatedSprite2D"]
 position = Vector2(-0.2, -10.9)
 rotation = -0.16057
-scale = Vector2(1, 1)
 texture = ExtResource("8_o7peg")
 hframes = 6
 

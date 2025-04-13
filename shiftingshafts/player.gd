@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const PUSH_SPEED = 60
+const PUSH_SPEED = 50
 const SPEED = 125.0
 const MAX_VELOCITY = 50
 const JUMP_VELOCITY = -250.0
@@ -21,7 +21,7 @@ var j = 0
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var hat: Sprite2D = $Sprite2D/Hat
-
+@onready var map: TileMap = $".."
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):  # This is for the Escape key

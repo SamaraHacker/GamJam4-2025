@@ -30,6 +30,7 @@ Rigidbody=""
 boxes=""
 player=""
 DeathFloor=""
+Platforms=""
 
 [rendering]
 

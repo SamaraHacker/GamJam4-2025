@@ -17,7 +17,7 @@ var i = 0
 var j = 0
 
 func _ready():
-	offset = box.position.x - position.x 
+	offset =0 #+ position.x - box.position.x
 
 @onready var box: RigidBody2D = $Box
 @onready var player: CharacterBody2D = $Player
@@ -38,13 +38,13 @@ func _physics_process(delta: float) -> void:
 		if abs(rotation_degrees - targetAngle) > 120:
 			box.freeze = true
 			savedPosition = box.global_position
-			print("before", savedPosition)
+			#print("before", savedPosition)
 			started = true
 		elif (started):
 			#savedPosition = box.position
 			if abs(rotation_degrees - targetAngle) > 5:
 				box.freeze = false
-				print("After", box.global_position)
+				#print("After", box.global_position)
 				var center = position  # TileMap's local origin
 				started = false
 				box.position = (box.position - center).rotated(PI) + center
